@@ -1,9 +1,9 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Colors } from "@/constants/Colors";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,24 +11,77 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
-      }}>
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Home',
+          title: "",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <FontAwesome
+              name={"home"}
+              size={23}
+              style={[{ marginBottom: -3, marginTop: 5 }]}
+              color={focused ? color : color}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="expenses"
         options={{
-          title: 'Explore',
+          title: "",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <FontAwesome
+              name={"credit-card"}
+              size={23}
+              style={[{ marginBottom: -3, marginTop: 5 }]}
+              color={focused ? color : color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="add-expense"
+        options={{
+          title: "",
+          tabBarIcon: ({ color, focused }) => (
+            <FontAwesome
+              name={"plus"}
+              size={23}
+              style={[{ marginBottom: -3, marginTop: 5 }]}
+              color={focused ? color : color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="savings"
+        options={{
+          title: "",
+          tabBarIcon: ({ color, focused }) => (
+            <FontAwesome
+              name={"bank"}
+              size={23}
+              style={[{ marginBottom: -3, marginTop: 5 }]}
+              color={focused ? color : color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "",
+          tabBarIcon: ({ color, focused }) => (
+            <FontAwesome
+              name={"user"}
+              size={23}
+              style={[{ marginBottom: -3, marginTop: 5 }]}
+              color={focused ? color : color}
+            />
           ),
         }}
       />
