@@ -39,8 +39,6 @@ const getCategories = async () => {
       },
     });
 
-    console.log(res.data);
-
     return res.data;
   } catch (err: any) {
     throw new Error(err.response.data);

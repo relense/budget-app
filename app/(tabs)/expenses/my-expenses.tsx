@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import LoadingScreen from "../../screens/Loading/Loading";
-import ExpensesView from "../../screens/Expenses/Expenses";
-import { CategorySvc } from "../../services/categories.services";
+import { CategorySvc } from "../../../services/categories.services";
+import LoadingScreen from "../../../screens/Loading/Loading";
+import ExpensesView from "../../../screens/Expenses/Expenses";
 
 type PageState =
   | { status: "Loading" }
   | { status: "Idle"; categories: any[] }
   | { status: "Error" };
 
-export default function Expenses() {
-  const [state, setState] = useState<PageState>({ status: "Loading" });
+const MyExpenses = () => {
+  const [state, setState] = useState<PageState>({
+    status: "Loading",
+  });
 
   useEffect(() => {
     const getCategories = async () => {
@@ -27,8 +29,10 @@ export default function Expenses() {
   return (
     <>
       {state.status == "Loading" && <LoadingScreen></LoadingScreen>}
-      {state.status == "Idle" && <ExpensesView categories={state.categories} />}
-      {state.status == "Error" && <ExpensesView categories={[]} />}
+      {state.status == "Idle" && <ExpensesView />}
+      {state.status == "Error" && <ExpensesView />}
     </>
   );
-}
+};
+
+export default MyExpenses;

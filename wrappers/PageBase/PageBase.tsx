@@ -1,13 +1,17 @@
 import { StyleSheet, View } from "react-native";
-import React from "react";
+import React, { ReactNode } from "react";
 
-const PageBase = () => {
-  return <View style={styles.mainContainer}></View>;
+interface PageBaseProps {
+  children: ReactNode;
+}
+
+const PageBase: React.FC<PageBaseProps> = ({ children }) => {
+  return <View style={styles.mainContainer}>{children}</View>;
 };
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
+    flex: 4,
     backgroundColor: "#ffffff",
   },
 });

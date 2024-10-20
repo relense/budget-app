@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const ExpensesView = () => {
+const IncomeView = () => {
   return (
     <View style={styles.mainContainer}>
-      <Text>Expenses</Text>
+      <Text>Income</Text>
     </View>
   );
 };
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExpensesView;
+export default IncomeView;

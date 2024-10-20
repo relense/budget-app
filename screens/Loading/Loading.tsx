@@ -1,13 +1,12 @@
-import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function LoadingScreen() {
+const LoadingScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Budget App</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -22,3 +21,5 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
+
+export default LoadingScreen;
