@@ -69,6 +69,7 @@ export const authContext: AuthContext = {
     try {
       await UserAuthSvc.completeUserAuth(params.callbackUrl);
       authContext.status = "Authenticated";
+      router.replace("/(tabs)/home");
     } catch (error) {
       helper.reportError(error);
       authContext.status = "Unauthenticated";

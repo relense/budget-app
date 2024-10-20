@@ -1,4 +1,7 @@
 import axios from "axios";
+import * as SecureStore from "expo-secure-store";
+
+import { helper } from "../utils/helper";
 
 type AuthInfoSuccessful = {
   status: "Authenticated";
@@ -45,7 +48,7 @@ const checkUserSession = async () => {
 };
 
 const inititateUserAuth = async () => {
-  const res = await axios.get("http://localhost:3000/auth/login", {
+  const res = await axios.get(helper.getApiUrl("/auth/login"), {
     headers: {
       "Content-Type": "application/json",
     },
@@ -67,7 +70,15 @@ const completeUserAuth = async (
   const params = new URLSearchParams(fragment);
   const accessToken = params.get("access_token");
 
-  const res = await axios.get("http://localhost:3000/auth/callback", {
+  if (accessToken) {
+    helper.storeToken(accessToken);
+  } else {
+    return {
+      status: "Unauthenticated",
+    };
+  }
+
+  const res = await axios.get(helper.getApiUrl("/auth/callback"), {
     headers: {
       "Content-Type": "application/json",
     },
@@ -89,7 +100,10 @@ const completeUserAuth = async (
   }
 };
 
-const logoutUser = async () => {};
+const logoutUser = async () => {
+  await axios.get(helper.getApiUrl("/auth/logout"));
+  await SecureStore.deleteItemAsync("access_token");
+};
 
 const UserAuthSvc = {
   checkUserSession,

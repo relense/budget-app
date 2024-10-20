@@ -1,11 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useAuth } from "../../hooks/useAuth";
 
-export default function TabTwoScreen() {
+export default function Profile() {
+  const { signOut } = useAuth();
+
   return (
-    <View>
-      <Text>profile</Text>
+    <View style={styles.mainContainer}>
+      <Pressable onPress={() => signOut()}>
+        <Text>Logout</Text>
+      </Pressable>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

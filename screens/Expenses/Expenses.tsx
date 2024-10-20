@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
-const HomeView = () => {
+const ExpensesView = ({ categories }: { categories: any }) => {
   return (
     <View style={styles.mainContainer}>
-      <Text>Home</Text>
+      {categories.map((item: any) => (
+        <Text key={item.id}>{item.name}</Text>
+      ))}
     </View>
   );
 };
@@ -18,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeView;
+export default ExpensesView;

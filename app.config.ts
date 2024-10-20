@@ -2,23 +2,23 @@ import { ExpoConfig, ConfigContext } from "expo/config";
 
 const extra = {
   config: {
-    apiUri: "http://192.168.50.202:3000",
+    apiUri: "http://localhost:3000/api/v1",
     loginCallbackUri: "exp+budget-app://login/callback",
   },
   eas: {
-    projectId: "e66d42ad-0739-467b-9077-c7f268fe4d4f",
+    projectId: "",
   },
 };
 
 switch (process.env.ENVIRONMENT) {
   case "local": {
-    extra.config.apiUri = "http://192.168.50.202:3010/online-banking";
-    extra.config.loginCallbackUri = "exp+bank-mobile://login/callback";
+    extra.config.apiUri = "";
+    extra.config.loginCallbackUri = "";
+
     break;
   }
   case "staging": {
-    extra.config.apiUri =
-      "https://api.develop.compliance.obconnect.io/online-banking/v1";
+    extra.config.apiUri = "";
 
     break;
   }
@@ -78,7 +78,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     output: "static",
     favicon: "./assets/images/favicon.png",
   },
-  plugins: ["expo-router"],
+  plugins: ["expo-router", "expo-secure-store"],
   experiments: {
     typedRoutes: true,
   },
