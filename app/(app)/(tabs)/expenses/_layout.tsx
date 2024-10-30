@@ -22,13 +22,13 @@ export default function Layout() {
   const updateNavigationItem = (navigationItem: NavigationItem) => {
     setSelectedNavigationItem(navigationItem);
     if (navigationItem.label === "Available") {
-      router.navigate("/(tabs)/expenses/");
+      router.navigate("/(app)/(tabs)/expenses");
     } else if (navigationItem.label === "Expenses") {
-      router.navigate("/(tabs)/expenses/my-expenses");
+      router.navigate("/(app)/(tabs)/expenses/my-expenses");
     } else if (navigationItem.label === "Recurrent") {
-      router.navigate("/(tabs)/expenses/recurrent");
+      router.navigate("/(app)/(tabs)/expenses/recurrent");
     } else {
-      router.navigate("/(tabs)/expenses/income");
+      router.navigate("/(app)/(tabs)/expenses/income");
     }
   };
 

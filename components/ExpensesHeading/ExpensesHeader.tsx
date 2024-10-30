@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { NavigationItem } from "../../app/(tabs)/expenses/_layout";
+import { NavigationItem } from "../../app/(app)/(tabs)/expenses/_layout";
 
 const ExpensesHeader = ({
   navigationItems,
