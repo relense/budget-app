@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { BasicConfig, UserService } from "../../../services/user.services";
-import HomeView from "../../../screens/Home/Home";
-import LoadingScreen from "../../../screens/Loading/Loading";
+import { BasicConfig, UserService } from "../../../../services/user.services";
+import HomeView from "../../../../screens/Home/Home";
+import LoadingScreen from "../../../../screens/Loading/Loading";
 
 type PageState =
   | { status: "Loading" }

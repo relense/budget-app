@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { CategorySvc } from "../../../services/categories.services";
-import LoadingScreen from "../../../screens/Loading/Loading";
-import AvailableExpensesView from "../../../screens/AvailableExpenses/AvailableExpenses";
+import { CategorySvc } from "../../../../services/categories.services";
+import LoadingScreen from "../../../../screens/Loading/Loading";
+import IncomeView from "../../../../screens/Income/Income";
 
 type PageState =
   | { status: "Loading" }
   | { status: "Idle"; categories: any[] }
   | { status: "Error" };
 
-const Available = () => {
+const Income = () => {
   const [state, setState] = useState<PageState>({
     status: "Loading",
   });
@@ -29,12 +29,10 @@ const Available = () => {
   return (
     <>
       {state.status == "Loading" && <LoadingScreen></LoadingScreen>}
-      {state.status == "Idle" && (
-        <AvailableExpensesView categories={state.categories} />
-      )}
-      {state.status == "Error" && <AvailableExpensesView categories={[]} />}
+      {state.status == "Idle" && <IncomeView />}
+      {state.status == "Error" && <IncomeView />}
     </>
   );
 };
 
-export default Available;
+export default Income;

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LoadingScreen from "../../../screens/Loading/Loading";
-import RecurrentView from "../../../screens/Recurrent/Recurrent";
+import LoadingScreen from "../../../../screens/Loading/Loading";
+import RecurrentView from "../../../../screens/Recurrent/Recurrent";
 
 type PageState =
   | { status: "Loading" }

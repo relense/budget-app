@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CategorySvc } from "../../../services/categories.services";
-import LoadingScreen from "../../../screens/Loading/Loading";
-import ExpensesView from "../../../screens/Expenses/Expenses";
+import { CategorySvc } from "../../../../services/categories.services";
+import LoadingScreen from "../../../../screens/Loading/Loading";
+import ExpensesView from "../../../../screens/Expenses/Expenses";
 
 type PageState =
   | { status: "Loading" }

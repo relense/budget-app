@@ -1,7 +1,7 @@
 import { Stack, useRouter } from "expo-router";
 import React, { useState } from "react";
-import ExpensesHeader from "../../../components/ExpensesHeading/ExpensesHeader";
-import PageBase from "../../../wrappers/PageBase/PageBase";
+import ExpensesHeader from "../../../../components/ExpensesHeading/ExpensesHeader";
+import PageBase from "../../../../wrappers/PageBase/PageBase";
 
 type NavigationItem = {
   label: "Available" | "Expenses" | "Recurrent" | "Income";
@@ -45,6 +45,7 @@ export default function Layout() {
           <Stack.Screen name="my-expenses" options={{ headerShown: false }} />
           <Stack.Screen name="recurrent" options={{ headerShown: false }} />
           <Stack.Screen name="income" options={{ headerShown: false }} />
+          <Stack.Screen name="add-category" options={{ headerShown: false }} />
         </Stack>
       </PageBase>
     </>

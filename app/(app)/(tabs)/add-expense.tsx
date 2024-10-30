@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
-import LoadingScreen from "../../screens/Loading/Loading";
-import AddExpensesView from "../../screens/AddExpenses/AddExpenses";
-import { CategorySvc } from "../../services/categories.services";
+import LoadingScreen from "../../../screens/Loading/Loading";
+import AddExpensesView from "../../../screens/AddExpenses/AddExpenses";
+import { CategorySvc } from "../../../services/categories.services";
 
 type PageState =
   | { status: "Loading" }
